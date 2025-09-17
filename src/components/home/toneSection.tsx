@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { tones } from "@/lib/data";
@@ -17,21 +19,29 @@ import { tones } from "@/lib/data";
           </div>
         </div>
           <div className="w-full mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-            {tones.map((tone) => (
+            {tones.map((tone, idx) => (
               <Link
                 href={`/shop/tone/${tone.slug}`}
                 key={tone.title}
                 className="flex flex-col text-start w-full"
               >
-                <div className="mb-5 sm:mb-6 w-full aspect-4/5 bg-muted rounded-xl relative overflow-hidden">
-                  <Image src={tone.image} alt={tone.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                </div>
-                <span className="text-2xl font-semibold tracking-tight">
-                  {tone.title}
-                </span>
-                <p className="mt-2 max-w-[25ch] text-muted-foreground text-[17px]">
-                  {tone.description}
-                </p>
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: (idx % 3) * 0.06 }}
+                  className="flex flex-col w-full"
+                >
+                  <div className="mb-5 sm:mb-6 w-full aspect-4/5 bg-muted rounded-xl relative overflow-hidden">
+                    <Image src={tone.image} alt={tone.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  </div>
+                  <span className="text-2xl font-semibold tracking-tight">
+                    {tone.title}
+                  </span>
+                  <p className="mt-2 max-w-[25ch] text-muted-foreground text-[17px]">
+                    {tone.description}
+                  </p>
+                </motion.div>
               </Link>
             ))}
           </div>

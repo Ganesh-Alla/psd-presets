@@ -1,13 +1,15 @@
+"use client"
 import Image from "next/image"
 import AllInOne from '../../../public/hero/cinetone-pro-all-in-one-preview.png'
 import FilmProCollectionFeatured from '../../../public/hero/film-pro-collection-featured-preview.png'
 import MasterCollection from '../../../public/hero/master-collection-preview.png'
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 
 const Hero = () => {
   return (
-    <section>
+    <section id="hero" className="w-full flex items-center justify-center">
       <div className="container  mt-8 md:mt-16 px-2 md:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           {/* Left: Text + CTAs */}
@@ -36,15 +38,33 @@ const Hero = () => {
           <div className="relative mx-auto hidden w-full max-w-2xl lg:block">
             {/* Floating cards */}
             <div className="relative h-[520px]">
-              <div className="absolute left-10 top-6 h-80 w-80 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border-5 border-card-foreground" >
+              <motion.div
+                className="absolute left-10 top-6 h-80 w-80 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border-5 border-card-foreground"
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
                 <Image src={AllInOne} alt="logo" fill />
-              </div>
-              <div className="absolute right-6 top-0 h-60 w-60 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border-5 border-muted-foreground" >
+              </motion.div>
+              <motion.div
+                className="absolute right-6 top-0 h-60 w-60 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border-5 border-muted-foreground"
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              >
                 <Image src={FilmProCollectionFeatured} alt="logo" fill />
-              </div>
-              <div className="absolute bottom-4 right-16 h-72 w-72 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border-5 border-muted" >
+              </motion.div>
+              <motion.div
+                className="absolute bottom-4 right-16 h-72 w-72 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border-5 border-muted"
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              >
                 <Image src={MasterCollection} alt="logo" fill />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { scenes } from "@/lib/data";
+import { motion } from "framer-motion";
   
   const SceneSection = () => {
     return (
@@ -17,21 +19,29 @@ import { scenes } from "@/lib/data";
           </div>
         </div>
           <div className="w-full mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-            {scenes.map((scene) => (
+            {scenes.map((scene, idx) => (
               <Link
                 href={`/shop/scene/${scene.slug}`}
                 key={scene.title}
                 className="flex flex-col text-start w-full"
               >
-                <div className="mb-5 sm:mb-6 w-full aspect-4/5 bg-muted rounded-xl relative overflow-hidden">
-                  <Image src={scene.image} alt={scene.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                </div>
-                <span className="text-2xl font-semibold tracking-tight">
-                  {scene.title}
-                </span>
-                <p className="mt-2 max-w-[25ch] text-muted-foreground text-[17px]">
-                  {scene.description}
-                </p>
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: (idx % 3) * 0.06 }}
+                  className="flex flex-col w-full"
+                >
+                  <div className="mb-5 sm:mb-6 w-full aspect-4/5 bg-muted rounded-xl relative overflow-hidden">
+                    <Image src={scene.image} alt={scene.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  </div>
+                  <span className="text-2xl font-semibold tracking-tight">
+                    {scene.title}
+                  </span>
+                  <p className="mt-2 max-w-[25ch] text-muted-foreground text-[17px]">
+                    {scene.description}
+                  </p>
+                </motion.div>
               </Link>
             ))}
           </div>

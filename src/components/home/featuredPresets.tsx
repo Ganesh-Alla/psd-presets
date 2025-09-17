@@ -1,3 +1,4 @@
+"use client"
 import { ArrowRight, ShoppingCart  } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { presets } from "@/lib/data";
+import { motion } from "framer-motion";
 
 const FeaturedPresets = () => {
   const featuredPresets = presets.filter(preset => 
@@ -37,8 +39,14 @@ const FeaturedPresets = () => {
 
       {/* Grid Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-        {featuredPresets.map((preset) => (
+        {featuredPresets.map((preset, idx) => (
           <Link href={`/presets/${preset.slug}`} key={preset.id} className="group">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: (idx % 4) * 0.05 }}
+            >
             <Card className="h-full py-0 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-xl hover:shadow-black/10 dark:hover:shadow-white/10 transition-all duration-300 group-hover:scale-[1.02] overflow-hidden">
               <CardHeader className="p-0 relative">
                 {/* Discount Badge */}
@@ -117,6 +125,7 @@ const FeaturedPresets = () => {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
           </Link>
         ))}
       </div>
