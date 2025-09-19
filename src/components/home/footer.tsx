@@ -14,23 +14,23 @@ const footerSections = [
     links: [
       {
         title: "Bright and Airy",
-        href: "/bright-and-airy",
+        href: "/tone/bright-and-airy",
       },
       {
         title: "Creamy Tones", 
-        href: "/creamy-tones",
+        href: "/tone/creamy-tones",
       },
       {
         title: "Warm Tones",
-        href: "/warm-tones", 
+        href: "/tone/warm-tones", 
       },
       {
         title: "Dark & Moody Tones",
-        href: "/dark-moody-tones",
+        href: "/tone/dark-moody-tones",
       },
       {
         title: "Cinematic Tones",
-        href: "/cinematic-tones",
+        href: "/tone/cinematic-tones",
       },
     ],
   },
@@ -39,19 +39,19 @@ const footerSections = [
     links: [
       {
         title: "Spring",
-        href: "/spring",
+        href: "/season/spring",
       },
       {
         title: "Summer",
-        href: "/summer",
+        href: "/season/summer",
       },
       {
         title: "Autumn",
-        href: "/autumn",
+        href: "/season/autumn",
       },
       {
         title: "Winter",
-        href: "/winter",
+        href: "/season/winter",
       },
     ],
   },
@@ -60,19 +60,19 @@ const footerSections = [
     links: [
       {
         title: "Landscape",
-        href: "/landscape",
+        href: "/scene/landscape",
       },
       {
         title: "Tropical",
-        href: "/tropical",
+        href: "/scene/tropical",
       },
       {
         title: "Wedding",
-        href: "/wedding",
+        href: "/scene/wedding",
       },
       {
         title: "Family",
-        href: "/family",
+        href: "/scene/family",
       },
     ],
   },
