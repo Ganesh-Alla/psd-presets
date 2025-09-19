@@ -101,25 +101,42 @@ If needed, you can further use the `web_scraper.py` file to scrape the web page 
 - Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
 - When using seaborn styles in matplotlib, use 'seaborn-v0_8' instead of 'seaborn' as the style name due to recent seaborn version changes
 - Use 'gpt-4o' as the model name for OpenAI's GPT-4 with vision capabilities
+- When using Next.js Image component with CSS classes that modify width/height (like 'w-auto h-auto'), add `style={{ width: 'auto', height: 'auto' }}` to maintain aspect ratio and avoid warnings
 
 # Scratchpad
 
-## Current Task: Fix Font Issues
-**Problem**: Fonts are not applying in the Next.js project despite being properly configured in layout.tsx
+## Current Task: Fix Image Loading Performance Issues
+**Problem**: Page reload takes 30,000ms to load images due to performance bottlenecks.
 
 **Analysis**:
-- Fonts are correctly imported and configured in layout.tsx (Cormorant and Cormorant_Upright)
-- CSS variables are set: --font-cormorant and --font-cormorant-upright
-- However, the globals.css file is using Tailwind v4 with @theme inline syntax
-- The font variables in CSS are pointing to --font-geist-sans and --font-geist-mono (lines 9-10) instead of the Cormorant fonts
-- Components are not using any font classes that would apply the custom fonts
+- 55 images totaling 9.6MB in public folder
+- Images loaded without optimization (no Next.js Image optimization)
+- All images loaded at once without lazy loading
+- No image compression or format optimization
+- Missing proper caching headers
 
-**Solution Plan**:
-[ ] Update globals.css to use the correct font variables
-[ ] Add font classes to components to apply the fonts
-[ ] Test the font application
+**Plan**:
+[ ] Analyze current image loading patterns
+[ ] Implement Next.js Image optimization
+[ ] Add lazy loading for non-critical images
+[ ] Optimize image formats and compression
+[ ] Configure proper caching
+[ ] Test performance improvements
 
 **Progress**:
-[ ] Step 1: Fix CSS font variable mapping
-[ ] Step 2: Add font classes to components
-[ ] Step 3: Verify fonts are working
+[X] Identified 55 images (9.6MB total) in public folder
+[X] Found images loaded without Next.js optimization in some components
+[X] Discovered all before/after images loaded at once
+[X] Implement Next.js Image optimization
+[X] Add lazy loading
+[X] Optimize image formats
+[X] Create image optimization script
+
+**Performance Improvements Applied**:
+- Next.js image optimization with WebP/AVIF formats
+- Lazy loading for non-critical images
+- Priority loading for above-the-fold content
+- Progressive loading for before/after grids (first 4 eager, rest lazy)
+- Blur placeholders for better UX
+- Responsive image sizing
+- Image optimization script for existing assets

@@ -1,10 +1,10 @@
 "use client"
+import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import AllInOne from '../../../public/hero/cinetone-pro-all-in-one-preview.png'
 import FilmProCollectionFeatured from '../../../public/hero/film-pro-collection-featured-preview.png'
 import MasterCollection from '../../../public/hero/master-collection-preview.png'
-import Link from "next/link"
-import { motion } from "framer-motion"
 
 
 const Hero = () => {
@@ -45,7 +45,15 @@ const Hero = () => {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
               >
-                <Image src={AllInOne} alt="logo" fill />
+                <Image 
+                  src={AllInOne} 
+                  alt="Cinetone Pro All-in-One Bundle" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                />
               </motion.div>
               <motion.div
                 className="absolute right-6 top-0 h-60 w-60 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border-5 border-muted-foreground"
@@ -54,7 +62,15 @@ const Hero = () => {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
               >
-                <Image src={FilmProCollectionFeatured} alt="logo" fill />
+                <Image 
+                  src={FilmProCollectionFeatured} 
+                  alt="Film Pro Collection Featured" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                />
               </motion.div>
               <motion.div
                 className="absolute bottom-4 right-16 h-72 w-72 rounded-xl bg-card shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border-5 border-muted"
@@ -63,7 +79,15 @@ const Hero = () => {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               >
-                <Image src={MasterCollection} alt="logo" fill />
+                <Image 
+                  src={MasterCollection} 
+                  alt="Master Collection" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                />
               </motion.div>
             </div>
           </div>

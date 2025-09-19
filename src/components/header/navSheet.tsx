@@ -2,8 +2,8 @@ import { ArrowUpRight, Menu } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import Logo from "./logo";
 import { navitems } from "@/lib/data";
+import Logo from "./logo";
 
 export const NavigationSheet = () => {
   return (

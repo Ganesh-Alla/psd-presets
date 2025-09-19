@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Cormorant, Quicksand } from "next/font/google";
+import { Cormorant,Montserrat, Quicksand } from "next/font/google";
+import NextJSTopLoader from "nextjs-toploader";
 import Navbar from "@/components/header/navBar";
 import Footer from "@/components/home/footer";
 import { defaultMetadata } from "@/lib/seo";
@@ -15,6 +16,11 @@ const quicksand = Quicksand({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const montserrat = Montserrat({
+   variable:"--font-montserrat",
+   subsets:["latin"]
+})
+
 export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
@@ -25,8 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${quicksand.variable} font-mono antialiased`}
+        className={`${cormorant.variable} ${quicksand.variable} ${montserrat.variable} font-quicksand antialiased`}
       >
+        <NextJSTopLoader/>
         <Navbar />
         {children}
         <Footer />

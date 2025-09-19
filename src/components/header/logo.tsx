@@ -5,7 +5,15 @@ import LogoImage from '../../../public/assets/cinetone-logo.png'
 const Logo = ({ratio, className}: {ratio: number, className?: string}) => {
   return (
     <Link href="/">
-        <Image src={LogoImage} alt="logo" width={ratio} height={ratio}  className={className}  priority={true}/>
+        <Image 
+          src={LogoImage} 
+          alt="logo" 
+          width={ratio} 
+          height={ratio}  
+          className={className}  
+          priority={true}
+          style={{ width: 'auto', height: 'auto' }}
+        />
     </Link>
   )
 }

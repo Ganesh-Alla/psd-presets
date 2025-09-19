@@ -12,8 +12,8 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 import { navitems } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 
 export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
@@ -38,7 +38,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
                 key={tone.title}
                 title={tone.title}
                 icon={tone.icon}
-                href="#"
+                href={`/tone/${tone.slug}`}
               >
                 {tone.description}
               </ListItem>
@@ -55,7 +55,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
                 key={season.title}
                 title={season.title}
                 icon={season.icon}
-                href="#"
+                href={`/season/${season.slug}`}
               >
                 {season.description}
               </ListItem>
@@ -72,7 +72,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
                 key={scene.title}
                 title={scene.title}
                 icon={scene.icon}
-                href="#"
+                href={`/scene/${scene.slug}`}
               >
                 {scene.description}
               </ListItem>
